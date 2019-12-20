@@ -6,7 +6,7 @@ class Idade extends Component{
         idade:undefined
     }
 
-    calculaIdade=ano=>{
+    calculaIdade=()=>{
         // alert(2019 - this.refs.ano.value);
         //let idade = 2019 - this.refs.ano.value;
         let d = new Date();
