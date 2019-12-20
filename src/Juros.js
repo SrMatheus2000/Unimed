@@ -6,9 +6,9 @@ export class Juros extends Component{
     }
     calculaJuro=()=>{
         let juros, 
-        valor=parseFloat(this.refs.valor.value), 
-        taxa=parseFloat(this.refs.taxa.value), 
-        meses=parseFloat(this.refs.meses.value);
+            valor=parseFloat(this.refs.valor.value), 
+            taxa=parseFloat(this.refs.taxa.value), 
+            meses=parseFloat(this.refs.meses.value);
         for(let i=0; i<meses; i++){
             juros = valor * taxa;
             valor = valor + juros;
