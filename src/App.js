@@ -35,5 +35,6 @@ export default App;
 // com a taxa de juros indicada pelo número de meses indicado.  
 
 // 3) Botão que, quando pressionado, exibe os 30 primeiros números primos;
+
 // 4) Três campos na tela, correspondentes ao comprimento das três arestas de um triângulo.  
 // Ao pressionar o botão, deverá ser informado se o triângulo é triângulo retângulo ou não.

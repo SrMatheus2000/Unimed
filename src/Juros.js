@@ -1,28 +1,22 @@
 import React, {Component} from 'react';
 
 export class Juros extends Component{
-
     state = {
         jurosCalculados:undefined
     }
-
     calculaJuro=()=>{
-
         let juros, 
         valor=parseFloat(this.refs.valor.value), 
         taxa=parseFloat(this.refs.taxa.value), 
         meses=parseFloat(this.refs.meses.value);
-
         for(let i=0; i<meses; i++){
             juros = valor * taxa;
             valor = valor + juros;
         }
-
         this.setState({
             jurosCalculados:valor
         })
     }
-
     render(){
         const {jurosCalculados} = this.state;
         return(
