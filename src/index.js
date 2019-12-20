@@ -7,7 +7,8 @@ import Helloworld from './Hello_World';
 import Idade from './Idade';
 import {Menu} from './Menu';
 import {Juros} from './Juros';
-import {Primos} from './Primos'
+import {Primos} from './Primos';
+import {Triangulo} from './Triangulo'
 // let exibeMensagem=()=>{
 //     alert("Hello world");
 // }
@@ -27,7 +28,7 @@ ReactDOM.render(<Helloworld/>,document.getElementById('hello'));
 ReactDOM.render(<Idade/>,document.getElementById('idade'));
 ReactDOM.render(<Juros/>,document.getElementById('juros'));
 ReactDOM.render(<Primos/>,document.getElementById('primos'));
-// ReactDOM.render(<Idade/>,document.getElementById('triangulo'));
+ReactDOM.render(<Triangulo/>,document.getElementById('triangulo'));
 
 
 
