@@ -13,7 +13,7 @@ export class Triangulo extends Component{
             aresta3=parseInt(this.refs.aresta3.value);
 
         if (aresta1 >= aresta2 && aresta1 >= aresta3) {
-           if (Math.sqrt(aresta2*aresta2+aresta3*aresta3)==aresta1) {
+           if (Math.sqrt(aresta2*aresta2+aresta3*aresta3)===aresta1) {
                 this.setState({
                     eRetangulo:'É um triangulo Retangulo'
                 })
@@ -23,7 +23,7 @@ export class Triangulo extends Component{
             })
         }
         } else if (aresta2 >= aresta1 && aresta2 >= aresta3) {
-            if (Math.sqrt(aresta1*aresta1+aresta3*aresta3)==aresta2) {
+            if (Math.sqrt(aresta1*aresta1+aresta3*aresta3)===aresta2) {
                 this.setState({
                     eRetangulo:'É um triangulo Retangulo'
                 })
@@ -33,7 +33,7 @@ export class Triangulo extends Component{
             })
         }
         } else if (aresta3 >= aresta1 && aresta3 >= aresta2) {
-            if (Math.sqrt(aresta2*aresta2+aresta1*aresta1)==aresta3) {
+            if (Math.sqrt(aresta2*aresta2+aresta1*aresta1)===aresta3) {
                 this.setState({
                     eRetangulo:'É um triangulo Retangulo'
                 })
