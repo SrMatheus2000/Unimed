@@ -11,6 +11,7 @@ import {Primos} from './Primos';
 import {Triangulo} from './Triangulo'
 import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Not_Found from './Not_Found'
+import 'bootstrap/dist/css/bootstrap.css';
 // let exibeMensagem=()=>{
 //     alert("Hello world");
 // }
@@ -22,22 +23,22 @@ import Not_Found from './Not_Found'
 
 const routing = (
     <Router>
-      <div>
-        <ul>
-            <li>
-                <Link to="/">Hello World</Link>
+      <div className="container">
+        <ul className="list-inline">
+            <li className="btn">
+                <Link className="btn btn-success" to="/">Hello World</Link>
             </li>
-            <li>
-                <Link to="/Idade">Idade</Link>
+            <li className="btn">
+                <Link className="btn btn-success" to="/Idade">Idade</Link>
             </li>
-            <li>
-                <Link to="/Juros">Juros</Link>
+            <li className="btn">
+                <Link className="btn btn-success" to="/Juros">Juros</Link>
             </li>
-            <li>
-                <Link to="/Primos">Primos</Link>
+            <li className="btn">
+                <Link className="btn btn-success" to="/Primos">Primos</Link>
             </li>
-            <li>
-                <Link to="/Triangulo">Triangulo</Link>
+            <li className="btn">
+                <Link className="btn btn-success" to="/Triangulo">Triangulo</Link>
             </li>
         </ul>
         <Switch>

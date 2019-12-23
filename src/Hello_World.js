@@ -6,7 +6,10 @@ class Helloworld extends Component {
   }
   render() {
     return (
-      React.createElement("button",{onClick: this.exibeMensagem}, "Hello World")
+      // React.createElement("button",{className:{btn, btn-success}, onClick: this.exibeMensagem}, "Hello World")
+      <button className="btn btn-danger" onClick={this.exibeMensagem}>
+        Hello World
+      </button>
     );
   }
 }
