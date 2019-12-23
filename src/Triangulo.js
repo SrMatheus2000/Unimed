@@ -17,20 +17,32 @@ export class Triangulo extends Component{
                 this.setState({
                     eRetangulo:'É um triangulo Retangulo'
                 })
-           } 
+           } else {
+            this.setState({
+                eRetangulo:'Não é um triangulo Retangulo'
+            })
+        }
         } else if (aresta2 >= aresta1 && aresta2 >= aresta3) {
             if (Math.sqrt(aresta1*aresta1+aresta3*aresta3)==aresta2) {
                 this.setState({
                     eRetangulo:'É um triangulo Retangulo'
                 })
-           } 
-        } else if (aresta3 >= aresta1 && aresta3 >= aresta3) {
-            if (Math.sqrt(aresta2*aresta2+aresta1*aresta1)==aresta1) {
+           } else {
+            this.setState({
+                eRetangulo:'Não é um triangulo Retangulo'
+            })
+        }
+        } else if (aresta3 >= aresta1 && aresta3 >= aresta2) {
+            if (Math.sqrt(aresta2*aresta2+aresta1*aresta1)==aresta3) {
                 this.setState({
                     eRetangulo:'É um triangulo Retangulo'
                 })
-           } 
+           } else {
+            this.setState({
+                eRetangulo:'Não é um triangulo Retangulo'
+            })
         }
+        } 
 
     }
     render(){

@@ -25,7 +25,7 @@ class Idade extends Component{
                 // <h2>{idade}</h2>
             // </React.Fragment>
             React.createElement("div", null,
-                React.createElement("input", {type:"number", ref:"ano", name:"ano"}, null),
+                React.createElement("input", {type:"number", ref:"ano", name:"ano", placeholder:"Data de Nascimento"}, null),
                 React.createElement("button", {onClick: this.calculaIdade}, "Calcular idade"),
                 React.createElement("h4", null, idade)
             )
