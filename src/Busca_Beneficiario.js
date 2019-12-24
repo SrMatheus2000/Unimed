@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class Busca_Beneficiario extends Component {
+  
   buscaBeneficiario = () => {
     let codigo = document.getElementById( "codigo" ).value;
     const data = {
@@ -11,11 +12,14 @@ class Busca_Beneficiario extends Component {
   }
   comunica = ( dados ) => {
     // console.log( 'vou enviar: ', dados );
+    document.getElementById("spinner").style.display = "inline";
     fetch('http://192.168.2.25:8008/jUniIII/Integra', {
       method: 'POST',
       body: JSON.stringify( dados )
     }).then( res => res.json())
-      .then( resposta => this.resolveBusca( resposta )
+      .then(document.getElementById("spinner").style.display = "none")
+      .then(document.getElementById("tabela").style.display = "table")
+      .then( resposta => this.resolveBusca( resposta )    
      );
   }
   resolveBusca = ( resposta ) => {
@@ -39,7 +43,8 @@ class Busca_Beneficiario extends Component {
       // console.log(data);
       document.getElementById('dNascimento').innerHTML = data[2] + '/' + data[1] + '/' + data[0];
     } else {
-      document.getElementById( 'resp' ).innerHTML = '';
+      document.getElementById("tabela").style.display = "none";
+      // document.getElementById( 'resp' ).innerHTML = '';
       alert( 'Erro: ' + resposta.dsErro );
     }
   }
@@ -73,7 +78,10 @@ class Busca_Beneficiario extends Component {
             </div>
           </div>
           <div className="row">
-            <table className="table table-striped table-borderless table-hover table-dark">
+            <div class="spinner-border text-success" role="status" id="spinner" style={{display:'none'}}>
+              <span class="sr-only">Loading...</span>
+            </div>
+            <table className="table table-striped table-borderless table-hover table-dark" id="tabela" style={{display:'none'}}>
               <tbody>
                 <tr>
                   <th itemScope="row">Nome:</th>

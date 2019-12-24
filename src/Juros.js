@@ -15,7 +15,8 @@ export class Juros extends Component{
         }
         this.setState({
             jurosCalculados:valor
-        })
+        });
+        document.getElementById("valor").style.display = "inline";
     }
     render(){
         const {jurosCalculados} = this.state;
@@ -43,7 +44,7 @@ export class Juros extends Component{
                         <button className="btn btn-danger" onClick={this.calculaJuro}>Calcular Juros</button>
                     </div>
                 </div>                    
-                    <h4>O Valor final é de R$ {jurosCalculados}</h4>             
+                    <h4 id="valor" style={{display:'none'}}>O Valor final é de R$ {jurosCalculados}</h4>             
             </React.Fragment>
 
             

@@ -11,7 +11,8 @@ class Idade extends Component{
         let data = d.getFullYear();
         this.setState({
             idade: data - this.refs.ano.value
-        })
+        });
+        document.getElementById("idade").style.display="inline";
     }
     render(){
         const { idade } = this.state;
@@ -27,7 +28,7 @@ class Idade extends Component{
                     </div>
                 </div>
                 
-                <h3>Sua idade é de {idade} anos</h3>
+                <h3 id="idade" style={{display:"none"}}>Sua idade é de {idade} anos</h3>
             </React.Fragment>
             // React.createElement("div", null,
             //     React.createElement("input", {type:"number", ref:"ano", name:"ano", placeholder:"Data de Nascimento"}, null),
