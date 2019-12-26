@@ -41,7 +41,7 @@ class Busca_Beneficiario extends Component {
         document.getElementById('ativo').innerHTML = 'Não';
       }
       let data = resposta.dtNascimento.split('-');
-      data[2] =  data[2].split(' ', 1);
+      data[2] = data[2].split(' ', 1);
       data[2] = data[2][0];
       // console.log(data);
       document.getElementById('dNascimento').innerHTML = data[2] + '/' + data[1] + '/' + data[0];
