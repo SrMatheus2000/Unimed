@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 
+// let input = document.getElementById("codigo");
+// input.addEventListener("keyup", () =>{
+//   if (event.keyCode === 13) {
+//     event.preventDefault();
+//     document.getElementById("procurar").click();
+//   }
+// });
+
 class Busca_Beneficiario extends Component {
   
   buscaBeneficiario = () => {
     let codigo = document.getElementById( "codigo" ).value;
     const data = {
       acao: "buscaBeneficiario",
-      idBenef: codigo 
+      idBenef: codigo
     }
     this.comunica( data );
   }
@@ -62,7 +70,7 @@ class Busca_Beneficiario extends Component {
               </div>
               <input type="number" id="codigo" className="form-control" placeholder="Código"/>
               <div className="input-group-append">
-                <button onClick={this.buscaBeneficiario} className="btn btn-danger">Procurar</button>
+                <button onClick={this.buscaBeneficiario} className="btn btn-danger" id="procurar">Procurar</button>
               </div>
             </div>
           </div>
