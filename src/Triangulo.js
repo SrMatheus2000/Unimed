@@ -4,6 +4,7 @@ export class Triangulo extends Component{
     state = {
         eRetangulo:undefined
     }
+
     checaRetangulo=()=>{
         let aresta1=parseInt(this.refs.aresta1.value), 
             aresta2=parseInt(this.refs.aresta2.value), 
@@ -41,10 +42,10 @@ export class Triangulo extends Component{
             }
         } 
     }
+
     render(){
         const {eRetangulo} = this.state;
         return(
-
             <React.Fragment>
                 <label for="basic-url">Aresta 1:</label>
                 <div className="input-group mb-3">
@@ -62,9 +63,7 @@ export class Triangulo extends Component{
                     </div>
                 </div>
                 <h4>{eRetangulo}</h4>
-            </React.Fragment>
-
-            
+            </React.Fragment>            
             // React.createElement("div", null,
             // React.createElement(
             //     "input", {

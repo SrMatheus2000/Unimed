@@ -4,9 +4,9 @@ class Idade extends Component{
     state = {
         idade:undefined
     }
+
     calculaIdade=()=>{
-        // alert(2019 - this.refs.ano.value);
-        //let idade = 2019 - this.refs.ano.value;
+        // console.log(2019 - this.refs.ano.value);
         let d = new Date();
         let data = d.getFullYear();
         this.setState({
@@ -14,6 +14,7 @@ class Idade extends Component{
         });
         document.getElementById("idade").style.display="inline";
     }
+
     render(){
         const { idade } = this.state;
         return(
@@ -27,7 +28,6 @@ class Idade extends Component{
                         <button className="btn btn-danger" onClick={this.calculaIdade}>Calcular Idade</button>
                     </div>
                 </div>
-                
                 <h3 id="idade" style={{display:"none"}}>Sua idade é de {idade} anos</h3>
             </React.Fragment>
             // React.createElement("div", null,

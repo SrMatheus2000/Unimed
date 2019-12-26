@@ -4,6 +4,7 @@ export class Juros extends Component{
     state = {
         jurosCalculados:undefined
     }
+
     calculaJuro=()=>{
         let juros, 
             valor=parseFloat(this.refs.valor.value), 
@@ -18,10 +19,10 @@ export class Juros extends Component{
         });
         document.getElementById("valor").style.display = "inline";
     }
+
     render(){
         const {jurosCalculados} = this.state;
         return(
-            
             <React.Fragment>
                 <label for="basic-url">Valor Investido:</label>
                 <div className="input-group mb-3">
@@ -46,8 +47,6 @@ export class Juros extends Component{
                 </div>                    
                     <h4 id="valor" style={{display:'none'}}>O Valor final é de R$ {jurosCalculados}</h4>             
             </React.Fragment>
-
-            
             // React.createElement("div", null,
             //     React.createElement(
             //         "input", {

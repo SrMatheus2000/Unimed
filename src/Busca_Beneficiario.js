@@ -10,6 +10,7 @@ class Busca_Beneficiario extends Component {
     }
     this.comunica( data );
   }
+
   comunica = ( dados ) => {
     // console.log( 'vou enviar: ', dados );
     document.getElementById("spinner").style.display = "inline";
@@ -22,10 +23,10 @@ class Busca_Beneficiario extends Component {
       .then( resposta => this.resolveBusca( resposta )    
      );
   }
+
   resolveBusca = ( resposta ) => {
     // console.log('reposta do servidor: ', resposta );
     if( resposta.status ) {
-      // document.getElementById( 'resp' ).innerHTML = resposta.nome + '<br /> Ativo: ' + resposta.ativo + '<br /> Nascimento: ' + resposta.dtNascimento;
       let nome = resposta.nome.toLowerCase().split(' ');
       for (let i = 0; i < nome.length; i++) {
         nome[i] = nome[i].charAt(0).toUpperCase() + nome[i].substring(1);     
@@ -44,27 +45,13 @@ class Busca_Beneficiario extends Component {
       document.getElementById('dNascimento').innerHTML = data[2] + '/' + data[1] + '/' + data[0];
     } else {
       document.getElementById("tabela").style.display = "none";
-      // document.getElementById( 'resp' ).innerHTML = '';
       alert( 'Erro: ' + resposta.dsErro );
     }
   }
+  
   render() {
     return (
       <React.Fragment>
-        {/* <div class="container">
-           <div class="row">
-             <div class="col-sm-1"></div>
-             <div class="col-sm-2">Código:</div>
-             <div class="col-sm_9"><input type="text" id="codigo" class="form-control"/></div>
-           </div>
-           <div class="row">
-             <div class="col-sm-3"></div>
-             <div class="col-sm-9"><button onClick={this.buscaBeneficiario} class="btn btn-outline-success">Procura</button></div>
-           </div>
-           <div class="row">
-             <span id='resp'></span>
-           </div>
-         </div> */}
         <div className="container-sm">
           <div className="row">
             <div className="input-group mb-3">
@@ -97,7 +84,6 @@ class Busca_Beneficiario extends Component {
                 </tr>
               </tbody>
             </table>
-            {/* <span id='resp'></span> */}
           </div>
         </div>
       </React.Fragment>
