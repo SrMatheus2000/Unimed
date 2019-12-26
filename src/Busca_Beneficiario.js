@@ -18,10 +18,12 @@ class Busca_Beneficiario extends Component {
       method: 'POST',
       body: JSON.stringify( dados )
     }).then( res => res.json())
-      .then(document.getElementById("spinner").style.display = "none")
-      .then(document.getElementById("tabela").style.display = "table")
+      // .then(document.getElementById("spinner").style.display = "none")
+      // .then(document.getElementById("tabela").style.display = "table")
       .then( resposta => this.resolveBusca( resposta )    
      );
+    document.getElementById("spinner").style.display = "none";
+    document.getElementById("tabela").style.display = "table";
   }
 
   resolveBusca = ( resposta ) => {
@@ -65,8 +67,8 @@ class Busca_Beneficiario extends Component {
             </div>
           </div>
           <div className="row">
-            <div class="spinner-border text-success" role="status" id="spinner" style={{display:'none'}}>
-              <span class="sr-only">Loading...</span>
+            <div className="spinner-border text-success" role="status" id="spinner" style={{display:'none'}}>
+              <span className="sr-only">Loading...</span>
             </div>
             <table className="table table-striped table-borderless table-hover table-dark" id="tabela" style={{display:'none'}}>
               <tbody>
