@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-
 function ListItem(props){
     return <li className="list-group-item">{props.value}</li>;
 }
