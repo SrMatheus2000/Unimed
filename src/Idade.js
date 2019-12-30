@@ -1,18 +1,20 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 class Idade extends Component{
     state = {
-        idade:undefined
+        idade:undefined,
+        styleResposta:"none"
     }
 
     calculaIdade=()=>{
         // console.log(2019 - this.refs.ano.value);
-        let d = new Date();
-        let data = d.getFullYear();
+        let d = new Date()
+        let data = d.getFullYear()
         this.setState({
             idade: data - this.refs.ano.value
         });
-        document.getElementById("idade").style.display="inline";
+        // document.getElementById("idade").style.display="inline";
+        this.setState({styleResposta: "inline"})
     }
 
     render(){
@@ -28,7 +30,7 @@ class Idade extends Component{
                         <button className="btn btn-danger" onClick={this.calculaIdade}>Calcular Idade</button>
                     </div>
                 </div>
-                <h3 id="idade" style={{display:"none"}}>Sua idade é de {idade} anos</h3>
+                <h3 id="idade" style={{display: this.state.styleResposta}}>Sua idade é de {idade} anos</h3>
             </React.Fragment>
             // React.createElement("div", null,
             //     React.createElement("input", {type:"number", ref:"ano", name:"ano", placeholder:"Data de Nascimento"}, null),

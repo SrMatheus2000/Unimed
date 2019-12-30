@@ -1,60 +1,67 @@
 import React, { Component } from 'react';
 
-// let input = document.getElementById("codigo");
-// input.addEventListener("keyup", () =>{
-//   if (event.keyCode === 13) {
-//     event.preventDefault();
-//     document.getElementById("procurar").click();
-//   }
-// });
-
 class Busca_Beneficiario extends Component {
   
+  state={
+    nome:undefined,
+    dtNascimento:undefined,
+    ativo:undefined,
+    styleResposta: "none",
+    styleTabela: "none",
+    styleSpinner: "none"
+  }
+  
+  testeEnter = (event) => {
+    let clickedId = event.key;
+    if (clickedId === 'Enter') {
+      this.buscaBeneficiario();
+    }
+  }
+  
   buscaBeneficiario = () => {
-    let codigo = document.getElementById( "codigo" ).value;
+    let codigo = parseInt(this.refs.codigo.value);
     const data = {
       acao: "buscaBeneficiario",
       idBenef: codigo
     }
     this.comunica( data );
+    this.setState({styleSpinner:"inline"});
   }
 
   comunica = ( dados ) => {
-    // console.log( 'vou enviar: ', dados );
-    document.getElementById("spinner").style.display = "inline";
     fetch('http://192.168.2.25:8008/jUniIII/Integra', {
       method: 'POST',
       body: JSON.stringify( dados )
     }).then( res => res.json())
-      // .then(document.getElementById("spinner").style.display = "none")
-      // .then(document.getElementById("tabela").style.display = "table")
+      .then(document.getElementById("spinner").style.display = "none")
       .then( resposta => this.resolveBusca( resposta )    
      );
-    document.getElementById("spinner").style.display = "none";
-    document.getElementById("tabela").style.display = "table";
   }
 
   resolveBusca = ( resposta ) => {
-    // console.log('reposta do servidor: ', resposta );
+    this.setState({
+      styleTabela: "table",
+      styleResposta: "inline",
+      styleSpinner: "none"
+    })
     if( resposta.status ) {
       let nome = resposta.nome.toLowerCase().split(' ');
       for (let i = 0; i < nome.length; i++) {
         nome[i] = nome[i].charAt(0).toUpperCase() + nome[i].substring(1);     
       }
-      nome = nome.join(' '); 
-      document.getElementById('nome').innerHTML = nome;
+      nome = nome.join(' ');
+      this.setState({nome: nome});
       if (resposta.ativo) {
-        document.getElementById('ativo').innerHTML = 'Sim';
+        this.setState({ativo: "Sim"});
       } else {
-        document.getElementById('ativo').innerHTML = 'Não';
+        this.setState({ativo: "Não"});
       }
       let data = resposta.dtNascimento.split('-');
       data[2] = data[2].split(' ', 1);
       data[2] = data[2][0];
-      // console.log(data);
-      document.getElementById('dNascimento').innerHTML = data[2] + '/' + data[1] + '/' + data[0];
+      this.setState({dtNascimento: (data[2] + '/' + data[1] + '/' + data[0])});
     } else {
-      document.getElementById("tabela").style.display = "none";
+      this.setState({styleTabela:"none"});
       alert( 'Erro: ' + resposta.dsErro );
     }
   }
@@ -68,29 +75,29 @@ class Busca_Beneficiario extends Component {
               <div className="input-group-prepend">
                 <span className="input-group-text" id="basic-addon3">Código:</span>
               </div>
-              <input type="number" id="codigo" className="form-control" placeholder="Código"/>
+              <input type="number" ref="codigo" name="codigo" className="form-control" placeholder="Código" onKeyDown={this.testeEnter}/>
               <div className="input-group-append">
                 <button onClick={this.buscaBeneficiario} className="btn btn-danger" id="procurar">Procurar</button>
+              </div>
+              <div className="spinner-border text-danger input-group-append" role="status" id="spinner" style={{display:this.state.styleSpinner}}>
+                <span className="sr-only">Loading...</span>
               </div>
             </div>
           </div>
           <div className="row">
-            <div className="spinner-border text-success" role="status" id="spinner" style={{display:'none'}}>
-              <span className="sr-only">Loading...</span>
-            </div>
-            <table className="table table-striped table-borderless table-hover table-dark" id="tabela" style={{display:'none'}}>
+            <table className="table table-striped table-borderless table-hover table-dark" style={{display: this.state.styleTabela}}>
               <tbody>
                 <tr>
                   <th itemScope="row">Nome:</th>
-                  <td id="nome"></td>
+                  <td>{this.state.nome}</td>
                 </tr>
                 <tr>
                   <th itemScope="row">Ativo:</th>
-                  <td id="ativo"></td>
+                  <td>{this.state.ativo}</td>
                 </tr>
                 <tr>
                   <th itemScope="row">Data de Nascimento:</th>
-                  <td id="dNascimento"></td>
+                  <td>{this.state.dtNascimento}</td>
                 </tr>
               </tbody>
             </table>

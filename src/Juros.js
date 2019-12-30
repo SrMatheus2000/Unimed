@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 
 export class Juros extends Component{
     state = {
-        jurosCalculados:undefined
+        jurosCalculados:undefined,
+        styleResposta: "none"
     }
 
     calculaJuro=()=>{
@@ -17,11 +18,14 @@ export class Juros extends Component{
         this.setState({
             jurosCalculados:valor
         });
-        document.getElementById("valor").style.display = "inline";
+        // document.getElementById("valor").style.display = "inline";
+        this.setState({
+            styleResposta: "inline"
+        });
     }
 
     render(){
-        const {jurosCalculados} = this.state;
+        // const {jurosCalculados} = this.state;
         return(
             <React.Fragment>
                 <label for="basic-url">Valor Investido:</label>
@@ -45,7 +49,7 @@ export class Juros extends Component{
                         <button className="btn btn-danger" onClick={this.calculaJuro}>Calcular Juros</button>
                     </div>
                 </div>                    
-                    <h4 id="valor" style={{display:'none'}}>O Valor final é de R$ {jurosCalculados}</h4>             
+                    <h4 style={{display: this.state.styleResposta}}>O Valor final é de R$ {this.state.jurosCalculados}</h4>             
             </React.Fragment>
             // React.createElement("div", null,
             //     React.createElement(
