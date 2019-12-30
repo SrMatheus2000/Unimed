@@ -22,7 +22,7 @@ export class Juros extends Component{
             valor = valor + juros;
         }
         this.setState({
-            jurosCalculados:valor
+            jurosCalculados: valor.toFixed(2)
         });
         this.setState({
             styleResposta: "inline"
@@ -37,18 +37,18 @@ export class Juros extends Component{
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon3">R$:</span>
                     </div>
-                    <input type="number" className="form-control" placeholder="Valor" ref="valor" name="valor" onKeyDown={this.testeEnter}/>
+                    <input type="number" className="form-control" placeholder="Valor" ref="valor" onKeyDown={this.testeEnter}/>
                 </div>
                 <label htmlFor="basic-url">Taxa de Juros:</label>
                 <div className="input-group mb-3">
-                    <input type="number" className="form-control" placeholder="Taxa" ref="taxa" name="taxa" onKeyDown={this.testeEnter}/>
+                    <input type="number" className="form-control" placeholder="Taxa" ref="taxa" onKeyDown={this.testeEnter}/>
                     <div className="input-group-append">
                         <span className="input-group-text" id="basic-addon3">%</span>
                     </div>
                 </div>
                 < label htmlFor = "basic-url" > Duração: </label>
                 <div className="input-group mb-3">
-                    <input type="number" className="form-control" placeholder="Meses" ref="meses" name="meses" onKeyDown={this.testeEnter}/>
+                    <input type="number" className="form-control" placeholder="Meses" ref="meses" onKeyDown={this.testeEnter}/>
                     < div className = "input-group-append" >
                         <button className="btn btn-danger" onClick={this.calculaJuro}>Calcular Juros</button>
                     </div>

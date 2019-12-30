@@ -55,15 +55,15 @@ export class Triangulo extends Component{
             <React.Fragment>
                 <label htmlFor="basic-url">Aresta 1:</label>
                 <div className="input-group mb-3">
-                    <input type="number" className="form-control" placeholder="Aresta 1" ref="aresta1" name="aresta1" onKeyDown={this.testeEnter}/>
+                    <input type="number" className="form-control" placeholder="Aresta 1" ref="aresta1" onKeyDown={this.testeEnter}/>
                 </div>
                 <label htmlFor="basic-url">Aresta 2:</label>
                 <div className="input-group mb-3">
-                    <input type="number" className="form-control" placeholder="Aresta 2" ref="aresta2" name="aresta2" onKeyDown={this.testeEnter}/>
+                    <input type="number" className="form-control" placeholder="Aresta 2" ref="aresta2" onKeyDown={this.testeEnter}/>
                 </div>
                 <label htmlFor="basic-url">Aresta 3:</label>
                 <div className="input-group mb-3">
-                    <input type="number" className="form-control" placeholder="Aresta 3" ref="aresta3" name="aresta3" onKeyDown={this.testeEnter}/>
+                    <input type="number" className="form-control" placeholder="Aresta 3" ref="aresta3" onKeyDown={this.testeEnter}/>
                     < div className = "input-group-append" >
                         <button className="btn btn-danger" onClick={this.checaRetangulo}>Calcular se o Triângulo Formado é um Triângulo Retângulo</button>
                     </div>
