@@ -12,17 +12,15 @@ class Busca_Beneficiario extends Component {
   }
   
   testeEnter = (event) => {
-    let clickedId = event.key;
-    if (clickedId === 'Enter') {
+    if (event.key === 'Enter') {
       this.buscaBeneficiario();
     }
   }
   
   buscaBeneficiario = () => {
-    let codigo = parseInt(this.refs.codigo.value);
     const data = {
       acao: "buscaBeneficiario",
-      idBenef: codigo
+      idBenef: parseInt(this.refs.codigo.value)
     }
     this.comunica( data );
     this.setState({styleSpinner:"inline"});
