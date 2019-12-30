@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Busca_Beneficiario extends Component {
-  
+   
   state={
     nome:undefined,
     dtNascimento:undefined,
@@ -35,12 +35,20 @@ class Busca_Beneficiario extends Component {
      );
   }
 
-  resolveBusca = ( resposta ) => {
+  resolveBusca = ( resposta /**/ ) => {
     this.setState({
       styleTabela: "table",
       styleResposta: "inline",
       styleSpinner: "none"
     })
+/*
+    const resposta = {
+      nome: "MATHEUS WANDSCHEER",
+      ativo: true,
+      dtNascimento: "2000-04-17 11:23:00",
+      status: true
+    }
+*/
     if( resposta.status ) {
       let nome = resposta.nome.toLowerCase().split(' ');
       for (let i = 0; i < nome.length; i++) {
@@ -49,11 +57,6 @@ class Busca_Beneficiario extends Component {
       nome = nome.join(' ');
       this.setState({nome: nome});
       resposta.ativo ? this.setState({ ativo: "Sim" }) : this.setState({ ativo: "Não" });
-      // if (resposta.ativo) {
-      //   this.setState({ativo: "Sim"});
-      // } else {
-      //   this.setState({ativo: "Não"});
-      // }
       let data = resposta.dtNascimento.split('-');
       data[2] = data[2].split(' ', 1);
       data[2] = data[2][0];
@@ -75,7 +78,7 @@ class Busca_Beneficiario extends Component {
               </div>
               <input type="number" ref="codigo" name="codigo" className="form-control" placeholder="Código" onKeyDown={this.testeEnter}/>
               <div className="input-group-append">
-                <button onClick={this.buscaBeneficiario} className="btn btn-danger" id="procurar">Procurar</button>
+                <button onClick={/*this.resolveBusca*/this.buscaBeneficiario} className="btn btn-danger" id="procurar">Procurar</button>
               </div>
               <div className="spinner-border text-danger input-group-append" role="status" id="spinner" style={{display:this.state.styleSpinner}}>
                 <span className="sr-only">Loading...</span>

@@ -6,6 +6,12 @@ export class Juros extends Component{
         styleResposta: "none"
     }
 
+    testeEnter = (event) => {
+        if (event.key === 'Enter') {
+            this.calculaJuro();
+        }
+    }
+
     calculaJuro=()=>{
         let juros, 
             valor=parseFloat(this.refs.valor.value), 
@@ -18,34 +24,32 @@ export class Juros extends Component{
         this.setState({
             jurosCalculados:valor
         });
-        // document.getElementById("valor").style.display = "inline";
         this.setState({
             styleResposta: "inline"
         });
     }
 
     render(){
-        // const {jurosCalculados} = this.state;
         return(
             <React.Fragment>
-                <label for="basic-url">Valor Investido:</label>
+                < label htmlFor = "basic-url" > Valor Investido: </label>
                 <div className="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon3">R$:</span>
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon3">R$:</span>
                     </div>
-                    <input type="number" class="form-control" placeholder="Valor" ref="valor" name="valor"/>
+                    <input type="number" className="form-control" placeholder="Valor" ref="valor" name="valor" onKeyDown={this.testeEnter}/>
                 </div>
-                <label for="basic-url">Taxa de Juros:</label>
+                <label htmlFor="basic-url">Taxa de Juros:</label>
                 <div className="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Taxa" ref="taxa" name="taxa"/>
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon3">%</span>
+                    <input type="number" className="form-control" placeholder="Taxa" ref="taxa" name="taxa" onKeyDown={this.testeEnter}/>
+                    <div className="input-group-append">
+                        <span className="input-group-text" id="basic-addon3">%</span>
                     </div>
                 </div>
-                <label for="basic-url">Duração:</label>
+                < label htmlFor = "basic-url" > Duração: </label>
                 <div className="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Meses" ref="meses" name="meses"/>
-                    <div class="input-group-append">
+                    <input type="number" className="form-control" placeholder="Meses" ref="meses" name="meses" onKeyDown={this.testeEnter}/>
+                    < div className = "input-group-append" >
                         <button className="btn btn-danger" onClick={this.calculaJuro}>Calcular Juros</button>
                     </div>
                 </div>                    

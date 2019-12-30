@@ -6,6 +6,12 @@ class Idade extends Component{
         styleResposta:"none"
     }
 
+    testeEnter = (event) => {
+        if (event.key === 'Enter') {
+            this.calculaIdade();
+        }
+    }
+
     calculaIdade=()=>{
         // console.log(2019 - this.refs.ano.value);
         let d = new Date()
@@ -22,11 +28,11 @@ class Idade extends Component{
         return(
             <React.Fragment>
                 <div className="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="">Seu ano de nascimento:</span>
+                    < div className = "input-group-prepend" >
+                        <span className="input-group-text" id="">Seu ano de nascimento:</span>
                     </div>
-                    <input type="number" ref="ano" name="ano" className="form-control" placeholder="Seu Ano de Nascimento Aqui"/>
-                    <div class="input-group-append">
+                    <input type="number" ref="ano" name="ano" className="form-control" placeholder="Seu Ano de Nascimento Aqui" onKeyDown={this.testeEnter}/>
+                    < div className = "input-group-append" >
                         <button className="btn btn-danger" onClick={this.calculaIdade}>Calcular Idade</button>
                     </div>
                 </div>
