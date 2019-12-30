@@ -31,8 +31,7 @@ class Busca_Beneficiario extends Component {
       method: 'POST',
       body: JSON.stringify( dados )
     }).then( res => res.json())
-      .then(document.getElementById("spinner").style.display = "none")
-      .then( resposta => this.resolveBusca( resposta )    
+      .then( resposta => this.resolveBusca( resposta )  
      );
   }
 
@@ -49,11 +48,12 @@ class Busca_Beneficiario extends Component {
       }
       nome = nome.join(' ');
       this.setState({nome: nome});
-      if (resposta.ativo) {
-        this.setState({ativo: "Sim"});
-      } else {
-        this.setState({ativo: "Não"});
-      }
+      resposta.ativo ? this.setState({ ativo: "Sim" }) : this.setState({ ativo: "Não" });
+      // if (resposta.ativo) {
+      //   this.setState({ativo: "Sim"});
+      // } else {
+      //   this.setState({ativo: "Não"});
+      // }
       let data = resposta.dtNascimento.split('-');
       data[2] = data[2].split(' ', 1);
       data[2] = data[2][0];

@@ -11,11 +11,11 @@ export class Triangulo extends Component{
             aresta3=parseInt(this.refs.aresta3.value);
 
         if (aresta1 >= aresta2 && aresta1 >= aresta3) {
-           if (Math.sqrt(aresta2*aresta2+aresta3*aresta3)===aresta1) {
+            if (Math.sqrt(aresta2*aresta2+aresta3*aresta3)===aresta1) {
                 this.setState({
                     eRetangulo:'É um triangulo Retangulo'
                 })
-           } else {
+            } else {
                 this.setState({
                     eRetangulo:'Não é um triangulo Retangulo'
                 })
@@ -25,7 +25,7 @@ export class Triangulo extends Component{
                 this.setState({
                     eRetangulo:'É um triangulo Retangulo'
                 })
-           } else {
+            } else {
                 this.setState({
                     eRetangulo:'Não é um triangulo Retangulo'
                 })
@@ -35,10 +35,10 @@ export class Triangulo extends Component{
                 this.setState({
                     eRetangulo:'É um Triângulo Retângulo'
                 })
-           } else {
+            } else {
                 this.setState({
                     eRetangulo:'Não é um Triângulo Retângulo'
-                 })
+                })
             }
         } 
     }
@@ -58,7 +58,7 @@ export class Triangulo extends Component{
                 <label for="basic-url">Aresta 3:</label>
                 <div className="input-group mb-3">
                     <input type="number" className="form-control" placeholder="Aresta 3" ref="aresta3" name="aresta3"/>
-                    <div class="input-group-append">
+                    < div className = "input-group-append" >
                         <button className="btn btn-danger" onClick={this.checaRetangulo}>Calcular se o Triângulo Formado é um Triângulo Retângulo</button>
                     </div>
                 </div>
