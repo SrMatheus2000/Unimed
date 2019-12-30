@@ -5,10 +5,11 @@ import Helloworld from './Hello_World';
 import Idade from './Idade';
 import {Juros} from './Juros';
 import {Primos} from './Primos';
-import {Triangulo} from './Triangulo'
-import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
-import Not_Found from './Not_Found'
+import {Triangulo} from './Triangulo';
+import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom';
+import Not_Found from './Not_Found';
 import 'bootstrap/dist/css/bootstrap.css';
+
 import Busca_Beneficiario from './Busca_Beneficiario'
 
 const routing = (
@@ -17,27 +18,15 @@ const routing = (
             <div className="container">
                 <div className="row">
                     <div className="col-md-2"></div>
-                    <div className="col-md-8">
-                        <ul className="list-inline">
-                            <li className="btn">
-                                <Link className="btn btn-success" to="/">Hello World</Link>
-                            </li>
-                            <li className="btn">
-                                <Link className="btn btn-success" to="/Idade">Idade</Link>
-                            </li>
-                            <li className="btn">
-                                <Link className="btn btn-success" to="/Juros">Juros</Link>
-                            </li>
-                            <li className="btn">
-                                <Link className="btn btn-success" to="/Primos">Primos</Link>
-                            </li>
-                            <li className="btn">
-                                <Link className="btn btn-success" to="/Triangulo">Triangulo</Link>
-                            </li>
-                            <li className="btn">
-                                <Link className="btn btn-success" to="/Busca_Beneficiario">Busca Beneficiário</Link>
-                            </li>
-                        </ul>
+                    <div className="col-md-8 btn-toolbar">
+                        <div className="btn-group btn-group-lg" style={{marginBottom:20}}>
+                            <Link className="btn btn-success" to="/">Hello World</Link>
+                            <Link className="btn btn-success" to="/Idade">Idade</Link>
+                            <Link className="btn btn-success" to="/Juros">Juros</Link>
+                            <Link className="btn btn-success" to="/Primos">Primos</Link>
+                            <Link className="btn btn-success" to="/Triangulo">Triangulo</Link>
+                            <Link className="btn btn-success" to="/Busca_Beneficiario">Busca Beneficiário</Link>
+                        </div>
                     </div>
                     <div className="col-md-2"></div>
                 </div>

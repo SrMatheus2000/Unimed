@@ -22,7 +22,6 @@ export class Primos extends Component{
     }
     mostrarPrimos = () => {
         this.setState(prevState => {
-        //   console.log(prevState);
           return { isClicked: !prevState.isClicked };
         });
         looped();

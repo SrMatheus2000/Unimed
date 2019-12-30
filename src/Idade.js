@@ -13,13 +13,11 @@ class Idade extends Component{
     }
 
     calculaIdade=()=>{
-        // console.log(2019 - this.refs.ano.value);
         let d = new Date()
         let data = d.getFullYear()
         this.setState({
             idade: data - this.refs.ano.value
         });
-        // document.getElementById("idade").style.display="inline";
         this.setState({styleResposta: "inline"})
     }
 
