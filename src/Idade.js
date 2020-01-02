@@ -36,11 +36,6 @@ class Idade extends Component{
                 </div>
                 <h3 id="idade" style={{display: this.state.styleResposta}}>Sua idade é de {idade} anos</h3>
             </React.Fragment>
-            // React.createElement("div", null,
-            //     React.createElement("input", {type:"number", ref:"ano", placeholder:"Data de Nascimento"}, null),
-            //     React.createElement("button", {onClick: this.calculaIdade}, "Calcular idade"),
-            //     React.createElement("h4", null, idade)
-            // )
         );
     }
 }

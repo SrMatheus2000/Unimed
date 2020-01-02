@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
+import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 import Helloworld from './Hello_World';
 import Idade from './Idade';
 import {Juros} from './Juros';
 import {Primos} from './Primos';
 import {Triangulo} from './Triangulo';
-import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom';
-import Not_Found from './Not_Found';
-import 'bootstrap/dist/css/bootstrap.css';
-
 import Busca_Beneficiario from './Busca_Beneficiario'
+import Not_Found from './Not_Found';
 
 const routing = (
     <Router>

@@ -55,34 +55,6 @@ export class Juros extends Component{
                 </div>                    
                     <h4 style={{display: this.state.styleResposta}}>O Valor final é de R$ {this.state.jurosCalculados}</h4>             
             </React.Fragment>
-            // React.createElement("div", null,
-            //     React.createElement(
-            //         "input", {
-            //             type:"number", 
-            //             placeholder:"Valor Investido", 
-            //             ref:"valor", 
-            //             name:"valor"
-            //         }, null
-            //     ),
-            //     React.createElement(
-            //         "input", {
-            //             type:"number", 
-            //             placeholder:"Taxa de Juros", 
-            //             ref:"taxa", 
-            //             name:"taxa"
-            //         }, null
-            //     ),
-            //     React.createElement(
-            //         "input", {
-            //             type:"number", 
-            //             placeholder:"Meses", 
-            //             ref:"meses", 
-            //             name:"meses"
-            //         }, null
-            //     ),
-            //     React.createElement("button", {onClick: this.calculaJuro}, "Calcular Juros"),
-            //     React.createElement("h4", null, jurosCalculados)
-            // )
         );
     }
 }

@@ -69,35 +69,7 @@ export class Triangulo extends Component{
                     </div>
                 </div>
                 <h4>{eRetangulo}</h4>
-            </React.Fragment>            
-            // React.createElement("div", null,
-            // React.createElement(
-            //     "input", {
-            //         type:"number", 
-            //         placeholder:"Aresta 1", 
-            //         ref:"aresta1", 
-            //         name:"aresta1"
-            //     }, null
-            // ),
-            // React.createElement(
-            //     "input", {
-            //         type:"number", 
-            //         placeholder:"Aresta 2", 
-            //         ref:"aresta2", 
-            //         name:"aresta2"
-            //     }, null
-            // ),
-            // React.createElement(
-            //     "input", {
-            //         type:"number", 
-            //         placeholder:"Aresta 3", 
-            //         ref:"aresta3", 
-            //         name:"aresta3"
-            //     }, null
-            // ),
-            // React.createElement("button", {onClick: this.checaRetangulo}, "É Retangulo"),
-            // React.createElement("h4", null, eRetangulo)
-            // )
+            </React.Fragment>
         );
     }
 }

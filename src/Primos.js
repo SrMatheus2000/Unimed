@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 
-function ListItem(props){
-    return <li className="list-group-item">{props.value}</li>;
+function ListaPrimo(primo) {
+    return <li key={primo.value.toString()} className="list-group-item">{primo.value}</li>;
 }
 
-function looped(){
+function mostrarPrimos() {
     const primos = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113];
-    const listItems = primos.map((data) =>(
+    const listaPrimos = primos.map((primo) => (
         <div className="container">
-            <ListItem  key={data.toString()} value={data}/>
+            <ListaPrimo key={primo.toString()} value={primo}/>
         </div>
     ));
     return(
-        <ul className="list-group">{listItems}</ul>
+        <ul className="list-group">{listaPrimos}</ul>
     );
 }
 
@@ -24,17 +24,14 @@ export class Primos extends Component{
         this.setState(prevState => {
           return { isClicked: !prevState.isClicked };
         });
-        looped();
+        mostrarPrimos();
       };
     render(){
         return (
-            // React.createElement("button", {onClick: this.mostrarPrimos}, "Mostrar Primos")
-            // <React.Fragment>
             <div>
                <button className="btn btn-danger" onClick={this.mostrarPrimos}>Mostrar Primos</button>
-               {this.state.isClicked &&looped()}
+               {this.state.isClicked && mostrarPrimos()}
             </div>
-            /* </React.Fragment> */
         );
     }
 }
