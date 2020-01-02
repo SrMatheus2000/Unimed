@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class Busca_Beneficiario extends Component {
    
@@ -13,7 +13,7 @@ class Busca_Beneficiario extends Component {
   
   testeEnter=(event) => {
     if (event.key === 'Enter') {
-      this.buscaBeneficiario();
+      this.buscaBeneficiario()
     }
   }
   
@@ -22,40 +22,52 @@ class Busca_Beneficiario extends Component {
       acao: "buscaBeneficiario",
       idBenef: parseInt(this.refs.codigo.value)
     }
-    this.comunica(data);
-    this.setState({styleSpinner:"inline"});
+    this.comunica(data)
+    this.setState({styleSpinner:"inline"})
   }
 
   comunica=(dados) => {
     fetch('http://192.168.2.25:8008/jUniIII/Integra', {
-      method: 'POST',
-      body: JSON.stringify(dados)
-    }).then(resposta => resposta.json())
-      .then(resposta => this.resolveBusca(resposta)  
-     );
+       method: 'POST',
+       body: JSON.stringify(dados)
+     })
+    .then((resposta) => {
+      if (resposta.ok) {
+        return resposta.json()
+      } else {
+        resposta.status === 500 ? (
+          resposta = {dsErro: "O campo \"código\" no pode estar em branco!"}
+        ) : (
+          resposta = {dsErro: "Código: " + resposta.status}
+        )
+        return resposta
+      }
+    })
+    .then((resposta) => {
+      return this.resolveBusca(resposta)
+    })
   }
 
-  resolveBusca=(resposta) => {
+  resolveBusca = (resposta) => {
     this.setState({
       styleTabela: "table",
       styleResposta: "inline",
       styleSpinner: "none"
     })
     if (resposta.status) {
-      let nome = resposta.nome.toLowerCase().split(' ');
+      let nome = resposta.nome.toLowerCase().split(' ')
       for (let i = 0; i < nome.length; i++) {
-        nome[i] = nome[i].charAt(0).toUpperCase() + nome[i].substring(1);     
+        nome[i] = nome[i].charAt(0).toUpperCase() + nome[i].substring(1)    
       }
-      nome = nome.join(' ');
-      this.setState({nome: nome});
-      resposta.ativo ? this.setState({ ativo: "Sim" }) : this.setState({ ativo: "Não" });
-      let data = resposta.dtNascimento.split('-');
-      data[2] = data[2].split(' ', 1);
-      data[2] = data[2][0];
-      this.setState({dtNascimento: (data[2] + '/' + data[1] + '/' + data[0])});
+      this.setState({nome: nome.join(' ')})
+      resposta.ativo ? this.setState({ ativo: "Sim" }) : this.setState({ ativo: "Não" })
+      let data = resposta.dtNascimento.split('-')
+      data[2] = data[2].split(' ', 1)
+      data[2] = data[2][0]
+      this.setState({dtNascimento: (data[2] + '/' + data[1] + '/' + data[0])})
     } else {
-      this.setState({styleTabela:"none"});
-      alert( 'Erro: ' + resposta.dsErro );
+      this.setState({styleTabela:"none"})
+      alert( 'Erro: ' + resposta.dsErro )
     }
   }
   
@@ -73,7 +85,7 @@ class Busca_Beneficiario extends Component {
                 <button onClick={this.buscaBeneficiario} className="btn btn-danger" id="procurar">Procurar</button>
               </div>
               <div className="spinner-border text-danger input-group-append" role="status" id="spinner" style={{display:this.state.styleSpinner}}>
-                <span className="sr-only">Loading...</span>
+                <span className="sr-only">Carregando...</span>
               </div>
             </div>
           </div>
@@ -101,4 +113,4 @@ class Busca_Beneficiario extends Component {
   }
 }
 
-export default Busca_Beneficiario;
+export default Busca_Beneficiario
